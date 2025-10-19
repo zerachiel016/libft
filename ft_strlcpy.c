@@ -11,31 +11,21 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdio.h>
 
 size_t ft_strlcpy(char *dst, const char *src, size_t dstsize) {
   char *d = dst;
   const char *s = src;
   size_t n = dstsize;
 
-  if (n) {
+  if (n)
     while (--n && (*d++ = *s++) != '\0')
       ;
+
+  if (!n && dst)
     *d = '\0';
-    // *(--d) = '\0';
-            printf("%ld", d - dst);
-  }
 
   while (*s++)
     ;
 
   return --s - src;
-}
-
-int main() {
-    char dst[3] = "a";
-    char *src = "c";
-
-    ft_strlcpy(dst, src, 2);
-    printf("%s", dst);
 }
