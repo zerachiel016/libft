@@ -17,10 +17,6 @@ size_t ft_strlcpy(char *dst, const char *src, size_t dstsize) {
   const char *s = src;
   size_t n = dstsize;
 
-  // dst -> ..........
-  // dstsize -> 10
-  // src -> hello world end..
-
   if (n) {
     while (--n && (*d++ = *s++) != '\0')
       ;
@@ -31,17 +27,4 @@ size_t ft_strlcpy(char *dst, const char *src, size_t dstsize) {
     ;
 
   return --s - src;
-}
-
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-  char dst[7] = "hellow\0";
-  char *src = "xz";
-
-  // strlcpy(dst, src, 7);
-  ft_strlcpy(dst, src, 7);
-
-  printf("%s", dst);
 }
