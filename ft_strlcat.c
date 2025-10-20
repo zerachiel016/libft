@@ -10,22 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 
-size_t strlcat(char *dst, const char *src, size_t size) {
-    char *d = dst;
-    const char *s = src;
-    size_t n = size;
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	char		*d;
+	const char	*s = src;
+	size_t		dlen;
+	size_t		n;
 
-    while(*d++)
-        n--;
-
-    while(--n && (*d++ = *s++) != '\0')
-        ;
-        if(--d - dst < size)
-           *
-
-    while (*s++)
-        ;
-
-    return (--d - dst) + (--s - src);
+	d = dst;
+	n = size;
+	while (*d && n--)
+		d++;
+	dlen = d - dst;
+	if (n)
+    {
+        while (--n && *s)
+            *d++ = *s++;
+        *d = '\0';
+    }
+	while (*s++)
+		;
+	return (dlen + (--s - src));
 }
