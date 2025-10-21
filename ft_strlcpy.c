@@ -12,20 +12,21 @@
 
 #include <stddef.h>
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize) {
-  char *d = dst;
-  const char *s = src;
-  size_t n = dstsize;
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	char		*d;
+	const char	*s = src;
+	size_t		n;
 
-  if (n)
-    while (--n && (*d++ = *s++) != '\0')
-      ;
-
-  if (!n && dst)
-    *d = '\0';
-
-  while (*s++)
-    ;
-
-  return --s - src;
+	d = dst;
+	n = dstsize;
+	if (n)
+	{
+		while (--n && *s)
+			*d++ = *s++;
+		*d = '\0';
+	}
+	while (*s++)
+		;
+	return (--s - src);
 }
