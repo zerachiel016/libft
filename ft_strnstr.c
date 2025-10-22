@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 22:53:13 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/23 00:10:09 by zdadsi           ###   ########.fr       */
+/*   Created: 2025/10/22 23:53:09 by zdadsi            #+#    #+#             */
+/*   Updated: 2025/10/23 00:25:44 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "libft.h"
 
-#include <stddef.h>
+char *ft_strnstr(const char *s, const char *find, size_t slen){
+    size_t len = ft_strlen(find);
 
-int ft_isdigit(int c);
-int ft_isalpha(int c);
-void *ft_memset(void *s, int c, size_t n);
-size_t ft_strlen(const char *s);
-int ft_strncmp(const char *s1, const char *s2, register size_t n);
+    if(!len)
+        return (char *)s;
+
+    while(len <= slen--) 
+        if(!ft_strncmp(s++, find, len))
+            return (char *)--s;
+
+    return 0;
+}
