@@ -6,7 +6,7 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 21:26:10 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/23 00:11:35 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/23 00:13:33 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void *memchr(const void *src, int c, size_t n) {
 
-    unsigned char *s = src;
+    const unsigned char *s = src;
 
     while(n--)
         if(*s++ == c)
-            return --s;
+            return (void *)--s;
 
     return 0;
 }
