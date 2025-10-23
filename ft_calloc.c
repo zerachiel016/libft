@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 22:53:13 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/23 05:47:05 by zdadsi           ###   ########.fr       */
+/*   Created: 2025/10/23 05:28:47 by zdadsi            #+#    #+#             */
+/*   Updated: 2025/10/23 05:55:07 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "libft.h"
+#include <stdlib.h>
 
-#include <stddef.h>
+void *ft_calloc(size_t n, size_t size) {
+    void *p;
 
-int ft_isdigit(int c);
-int ft_isalpha(int c);
-void *ft_memset(void *s, int c, size_t n);
-size_t ft_strlen(const char *s);
-int ft_strncmp(const char *s1, const char *s2, size_t n);
-void ft_bzero(void *s, size_t n);
+    p = malloc(n * size);
+    if (p)
+        ft_bzero(p, n * size);
+    return (p);
+}
