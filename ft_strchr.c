@@ -6,11 +6,11 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 03:43:49 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/22 19:04:51 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/25 01:19:39 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c)
+char *ft_strchr(const char *s, int c)
 {
     while(*s)
         if(*s++ == c)
