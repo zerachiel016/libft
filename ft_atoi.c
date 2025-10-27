@@ -6,7 +6,7 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 00:28:48 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/24 05:45:19 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/27 10:07:08 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,23 @@ int	ft_atoi(const char *nbr)
 	unsigned long	res;
 	unsigned long	lim;
 	unsigned int	offset;
-	int				sign;
+	int				neg;
 
 	res = 0;
 	while ((9 <= *nbr && *nbr <= 13) || *nbr == 32)
 		nbr++;
-	sign = 1 - (2 * (*nbr == '-'));
+
+	neg = (*nbr == '-');
 	nbr += (*nbr == '-' || *nbr == '+');
-	lim = LONG_MAX + ((sign != 1) * 1);
-	offset = lim % 10;
+	lim = LONG_MAX + neg;
+	offset = 7 + neg;
 	lim /= 10;
+
 	while ('0' <= *nbr && *nbr <= '9')
 	{
 		if (res > lim || (res == lim && (*nbr - '0') > offset))
-			return (-1 * (sign == 1));
+			return -(!neg);
 		res = res * 10 + (*nbr++ - '0');
 	}
-	return (res * sign);
+	return (res ^ -neg) + neg;
 }
