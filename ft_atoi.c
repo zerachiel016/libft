@@ -6,7 +6,7 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 00:28:48 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/27 10:07:08 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/27 11:28:30 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi(const char *nbr)
 {
 	unsigned long	res;
 	unsigned long	lim;
-	unsigned int	offset;
+	int	offset;
 	int				neg;
 
 	res = 0;
