@@ -6,7 +6,7 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:20:48 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/27 11:32:41 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/27 11:37:43 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char *ft_strmapi(char const *s, char(f)(unsigned int, char)) {
     size_t i = 0;
     if (new)
         while (new[i]) {
-            f(i, new[i]);
+            new[i] = f(i, new[i]);
             i++;
         }
     return new;
