@@ -25,7 +25,8 @@ char *ft_strtrim(char const *s1, char const *set) {
     return ft_substr(s1, 0, end);;
 }
 
-//  NOTE: Old Version
+//  NOTE: Old ft_strtrim Version
+//
 // char *ft_strtrim(char const *s1, char const *set) {
 //
 //   size_t len = ft_strlen(s1);
