@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 // NOTE: 6-7 times faster than looping
-static int count_digits(unsigned n) {
+static int count_digits(unsigned int n) {
   if (n < 10)
     return 1;
   if (n < 100)
