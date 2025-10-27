@@ -6,7 +6,7 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 06:48:58 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/26 04:08:22 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/27 10:48:00 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,17 @@ static size_t count_tokens(char const *s, char c) {
     return tokens_num;
 }
 
-static void wipe_tokens(char ***tk, size_t prev_tokens) {
-    char **tokens = *tk;
+static void wipe_tokens(char **tokens, size_t prev_tokens) {
     while(prev_tokens)
-    {
         free( tokens[prev_tokens]);
-        tokens[prev_tokens--] = NULL;
-    }
     free(tokens);
-    tokens = NULL;
 }
 
 char **ft_split(char const *s, char c) {
     size_t tokens_count = count_tokens(s, c);
     char **tokens = malloc( ( tokens_count + 1) * sizeof(char *));
+    if(!tokens)
+        return NULL;
     tokens[tokens_count] = NULL;
 
     size_t i = 0;
@@ -50,7 +47,7 @@ char **ft_split(char const *s, char c) {
         tokens[i] = ft_substr(s - w_len - 1, 0, w_len);
         if(!tokens[i])
         {
-            wipe_tokens(&tokens, i);
+            wipe_tokens(tokens, i);
             return NULL;
         }
         i++;
