@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-// NOTE: 6-7 times faster than looping
+// HACK: 6-7 times faster than looping/dividing
 static int count_digits(unsigned int n) {
   if (n < 10)
     return 1;
