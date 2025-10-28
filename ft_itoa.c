@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include <stdlib.h>
 
 // NOTE: 6-7 times faster than looping

@@ -1,4 +1,3 @@
-#include <limits.h>
 #include <unistd.h>
 
 static int count_digits(unsigned int n) {
