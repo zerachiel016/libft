@@ -12,15 +12,15 @@
 
 #include "libft.h"
 
-char *ft_strnstr(const char *s, const char *find, size_t slen){
-    size_t len = ft_strlen(find);
+char	*ft_strnstr(const char *s, const char *find, size_t slen)
+{
+	size_t	len;
 
-    if(!len)
-        return (char *)s;
-
-    while(len <= slen--) 
-        if(!ft_strncmp(s++, find, len))
-            return (char *)--s;
-
-    return 0;
+	len = ft_strlen(find);
+	if (!len)
+		return ((char *)s);
+	while (len <= slen--)
+		if (!ft_strncmp(s++, find, len))
+			return ((char *)--s);
+	return (0);
 }

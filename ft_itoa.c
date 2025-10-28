@@ -13,45 +13,51 @@
 #include <stdlib.h>
 
 // HACK: 6-7 times faster than looping/dividing
-static int count_digits(unsigned int n) {
-  if (n < 10)
-    return 1;
-  if (n < 100)
-    return 2;
-  if (n < 1000)
-    return 3;
-  if (n < 10000)
-    return 4;
-  if (n < 100000)
-    return 5;
-  if (n < 1000000)
-    return 6;
-  if (n < 10000000)
-    return 7;
-  if (n < 100000000)
-    return 8;
-  if (n < 1000000000)
-    return 9;
-  return 10;
+static int	count_digits(unsigned int n)
+{
+	if (n < 10)
+		return (1);
+	if (n < 100)
+		return (2);
+	if (n < 1000)
+		return (3);
+	if (n < 10000)
+		return (4);
+	if (n < 100000)
+		return (5);
+	if (n < 1000000)
+		return (6);
+	if (n < 10000000)
+		return (7);
+	if (n < 100000000)
+		return (8);
+	if (n < 1000000000)
+		return (9);
+	return (10);
 }
 
-char *ft_itoa(int n) {
-  int neg = (n < 0);
-  unsigned int _n = (n ^ -neg) + neg;
-  int digits = neg + count_digits(_n);
+char	*ft_itoa(int n)
+{
+	int				neg;
+	unsigned int	_n;
+	int				digits;
+	char			*res;
 
-  char *res = malloc(neg + digits + 1);
-  if (!res)
-    return 0;
-  res[neg + digits] = '\0';
-  while (digits--) {
-    res[digits] = (_n % 10) + '0';
-    _n /= 10;
-  }
-  if (neg)
-    *res = '-';
-
-  return res;
+	neg = (n < 0);
+	_n = (n ^ -neg) + neg;
+	digits = neg + count_digits(_n);
+	res = malloc(neg + digits + 1);
+	if (!res)
+		return (0);
+	res[neg + digits] = '\0';
+	while (digits--)
+	{
+		res[digits] = (_n % 10) + '0';
+		_n /= 10;
+	}
+	if (neg)
+		*res = '-';
+	return (res);
 }
 
 // NOTE: Old ft_itoa version

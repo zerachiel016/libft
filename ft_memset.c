@@ -12,12 +12,15 @@
 
 #include <stddef.h>
 
-// PERF: Could be more optimized with (64-bit bulk writes, SIMD operations etc...)
-void *ft_memset(void *s, int c, size_t n) {
-  unsigned char *p = (unsigned char *)s;
-  unsigned char cc = c & 0xff;
+// PERF: Could be more optimized with 64-bit bulk writes, SIMD operations etc...
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*p;
+	unsigned char	cc;
 
-  while (n--)
-    *p++ = cc;
-  return s;
+	p = (unsigned char *)s;
+	cc = c & 0xff;
+	while (n--)
+		*p++ = cc;
+	return (s);
 }

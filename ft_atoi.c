@@ -16,24 +16,22 @@ int	ft_atoi(const char *nbr)
 {
 	unsigned long	res;
 	unsigned long	lim;
-	int	offset;
+	int				offset;
 	int				neg;
 
 	res = 0;
 	while ((9 <= *nbr && *nbr <= 13) || *nbr == 32)
 		nbr++;
-
 	neg = (*nbr == '-');
 	nbr += (*nbr == '-' || *nbr == '+');
 	lim = LONG_MAX + neg;
 	offset = 7 + neg;
 	lim /= 10;
-
 	while ('0' <= *nbr && *nbr <= '9')
 	{
 		if (res > lim || (res == lim && (*nbr - '0') > offset))
-			return -(!neg);
+			return (-(!neg));
 		res = res * 10 + (*nbr++ - '0');
 	}
-	return (res ^ -neg) + neg;
+	return ((res ^ -neg) + neg);
 }

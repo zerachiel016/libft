@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    char *p = 0;  
-    while(*s)
-        if(*s++ == c)
-            p = (char *)s - 1;
+	char	*p;
 
-    return p;
+	p = 0;
+	while (*s)
+		if (*s++ == c)
+			p = (char *)s - 1;
+	return (p);
 }

@@ -13,12 +13,15 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char *ft_substr(char const *s, unsigned int start, size_t len) {
-    char *p = malloc(len + 1);
-    if (p)
-    {
-        ft_memcpy(p, s + start, len);
-        *(p + len) = '\0';
-    }
-    return p;
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*p;
+
+	p = malloc(len + 1);
+	if (p)
+	{
+		ft_memcpy(p, s + start, len);
+		*(p + len) = '\0';
+	}
+	return (p);
 }

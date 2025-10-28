@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if('A' <= c && c <= 'Z')
-        return c | 0x20;
-    return c;
+	if ('A' <= c && c <= 'Z')
+		return (c | 0x20);
+	return (c);
 }

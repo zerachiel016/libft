@@ -6,22 +6,22 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 20:19:42 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/25 19:30:15 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/28 05:29:10 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set) {
-    while (ft_strchr(set, *s1))
-        s1++;
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	end;
 
-    size_t end = ft_strlen(s1);
-
-    while (end && ft_strchr(set, s1[end - 1]))
-        end--;
-
-    return ft_substr(s1, 0, end);;
+	while (ft_strchr(set, *s1))
+		s1++;
+	end = ft_strlen(s1);
+	while (end && ft_strchr(set, s1[end - 1]))
+		end--;
+	return (ft_substr(s1, 0, end));
 }
 
 //  NOTE: Old ft_strtrim Version
@@ -45,5 +45,5 @@ char *ft_strtrim(char const *s1, char const *set) {
 //   if (trimmed)
 //     trimmed = ft_memcpy(trimmed, s1 + l_trim, len);
 //
-//   return trimmed;
+//   return (trimmed);
 // }
