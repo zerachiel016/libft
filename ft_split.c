@@ -6,7 +6,7 @@
 /*   By: zdadsi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 06:48:58 by zdadsi            #+#    #+#             */
-/*   Updated: 2025/10/28 03:29:45 by zdadsi           ###   ########.fr       */
+/*   Updated: 2025/10/29 06:13:56 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ static size_t	count_tokens(char const *s, char c)
 	return (tokens_num);
 }
 
-static void	wipe_tokens(char **tokens, size_t prev_tokens)
+static void	*wipe_tokens(char **tokens, size_t prev_tokens)
 {
 	while (prev_tokens)
 		free(tokens[prev_tokens]);
 	free(tokens);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -38,9 +39,10 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	w_len;
 
+	tokens_count = count_tokens(s, c);
 	tokens = malloc((tokens_count + 1) * sizeof(char *));
-	tokens_count = count_tokens(s, c) * (tokens != NULL);
-	tokens[tokens_count] = NULL;
+	if (!tokens)
+		return (NULL);
 	i = 0;
 	while (i < tokens_count)
 	{
@@ -51,11 +53,9 @@ char	**ft_split(char const *s, char c)
 			w_len++;
 		tokens[i] = ft_substr(s - w_len - 1, 0, w_len);
 		if (!tokens[i])
-		{
-			wipe_tokens(tokens, i);
-			return (NULL);
-		}
+			return (wipe_tokens(tokens, i));
 		i++;
 	}
+	tokens[tokens_count] = NULL;
 	return (tokens);
 }
