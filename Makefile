@@ -33,7 +33,7 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c 
+%.o: %.c $(HEADER)
 	$(CC) -c $< -o $@
 
 $(NAME): $(OBJ)
