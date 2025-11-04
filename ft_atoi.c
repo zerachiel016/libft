@@ -15,7 +15,6 @@ int	ft_atoi(const char *nbr)
 {
 	unsigned long		res;
 	const unsigned long	offset = LONG_MAX / 10;
-	unsigned int		digit;
 	int					lim;
 	int					neg;
 
@@ -23,14 +22,13 @@ int	ft_atoi(const char *nbr)
 	while ((9 <= *nbr && *nbr <= 13) || *nbr == 32)
 		nbr++;
 	neg = (*nbr == '-');
-	nbr += (*nbr == '-' || *nbr == '+');
+	nbr += (neg || *nbr == '+');
 	lim = 7 + neg;
 	while ('0' <= *nbr && *nbr <= '9')
 	{
-		digit = *nbr - '0';
-		if (res > offset || (res == offset && digit > lim))
+		if (res > offset || (res == offset && (*nbr - '0') > lim))
 			return (-(!neg));
-		res = res * 10 + digit;
+		res = res * 10 + (*nbr - '0');
 		nbr++;
 	}
 	return ((res ^ -neg) + neg);
