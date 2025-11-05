@@ -27,7 +27,7 @@ int	ft_atoi(const char *nbr)
 	while ('0' <= *nbr && *nbr <= '9')
 	{
 		if (res > offset || (res == offset && (*nbr - '0') > lim))
-			return (-(!neg));
+			return (neg - 1);
 		res = res * 10 + (*nbr - '0');
 		nbr++;
 	}
