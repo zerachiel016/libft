@@ -12,7 +12,6 @@
 
 #include <stddef.h>
 
-// PERF: Could be more optimized with 64-bit bulk writes
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*p;
