@@ -59,9 +59,8 @@ void	ft_putnbr_fd(int n, int fd)
 	int		len;
 	char	s[11];
 
-    if(fd < 0)
-        return;
-
+	if (fd < 0)
+		return ;
 	mini_itoa(n, s, &len);
 	write(fd, s, len);
 }

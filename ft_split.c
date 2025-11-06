@@ -16,8 +16,9 @@
 static size_t	count_tokens(char const *s, char c)
 {
 	size_t	tokens_num;
-    if(!s)
-        return 0;
+
+	if (!s)
+		return (0);
 	tokens_num = (*s && *s != c);
 	while (*++s)
 		if (*(s - 1) == c && *s != c)

@@ -16,7 +16,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	end;
 
-    if (!s1 || !set)
+	if (!s1 || !set)
 		return (NULL);
 	while (ft_strchr(set, *s1))
 		s1++;
