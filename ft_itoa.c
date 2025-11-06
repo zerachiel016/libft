@@ -49,7 +49,7 @@ char	*ft_itoa(int n)
 	res = malloc(neg + digits + 1);
 	if (!res)
 		return (0);
-	res[neg + digits] = '\0';
+	res[digits] = '\0';
 	while (digits--)
 	{
 		res[digits] = (_n % 10) + '0';
