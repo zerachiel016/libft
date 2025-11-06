@@ -18,6 +18,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*nu_lst;
 	t_list	*nu_lst_head;
 
+    if(!lst || !f || !del)
+        return NULL;
+
 	nu_lst_head = NULL;
 	while (lst)
 	{
