@@ -59,31 +59,3 @@ char	*ft_itoa(int n)
 		*res = '-';
 	return (res);
 }
-
-// NOTE: Old ft_itoa version
-//
-// char *ft_itoa(int n) {
-//   int neg;
-//   unsigned int _n;
-//   int len;
-//   char *res;
-//
-//   neg = (n < 0);
-//   _n = (1 - 2 * neg) * (unsigned int)n;
-//   len = neg + !n;
-//   while (n) {
-//     n /= 10;
-//     len++;
-//   }
-//   res = malloc(len + 1);
-//   if (!res)
-//     return (0);
-//   res[len] = '\0';
-//   while (len-- > neg) {
-//     res[len] = (_n % 10) + '0';
-//     _n /= 10;
-//   }
-//   if (neg)
-//     *res = '-';
-//   return (res);
-// }
