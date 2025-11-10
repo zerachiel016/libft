@@ -34,13 +34,13 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 all: $(NAME)
 
 %.o: %.c $(HEADER)
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 bonus: $(OBJ_BONUS)
-	ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
@@ -49,9 +49,5 @@ fclean: clean
 	rm -f $(NAME)
 	
 re: fclean all
-
-testrun: test/test.c 
-	@$(CC) $< -o ./test/test
-	@./test/./test
 
 .PHONY: all bonus clean fclean re
