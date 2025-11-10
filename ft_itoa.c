@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 // HACK: 6-7 times faster than looping/dividing
 static int	count_digits(unsigned int n)

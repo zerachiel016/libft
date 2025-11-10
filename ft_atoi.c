@@ -9,7 +9,8 @@
 /*   Updated: 2025/11/03 18:25:08 by zdadsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <limits.h>
+
+#include "libft.h"
 
 int	ft_atoi(const char *nbr)
 {
