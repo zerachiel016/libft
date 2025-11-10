@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *s, const char *find, size_t slen)
 	len = ft_strlen(find);
 	if (!len)
 		return ((char *)s);
-	while (len <= slen--)
+	while (*s && len <= slen--)
 		if (!ft_strncmp(s++, find, len))
 			return ((char *)--s);
 	return (0);
