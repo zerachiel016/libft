@@ -17,7 +17,7 @@ static size_t	count_tokens(char const *s, char c)
 {
 	size_t	tokens_num;
 
-	if (!s)
+	if (!s || !*s)
 		return (0);
 	tokens_num = (*s && *s != c);
 	while (*++s)
@@ -29,7 +29,7 @@ static size_t	count_tokens(char const *s, char c)
 static void	*wipe_tokens(char **tokens, size_t prev_tokens)
 {
 	while (prev_tokens)
-		free(tokens[prev_tokens]);
+		free(tokens[--prev_tokens]);
 	free(tokens);
 	return (NULL);
 }
