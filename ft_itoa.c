@@ -46,7 +46,7 @@ char	*ft_itoa(int n)
 	neg = (n < 0);
 	_n = (n ^ -neg) + neg;
 	digits = neg + count_digits(_n);
-    res = malloc(digits + 1);
+	res = malloc(digits + 1);
 	if (!res)
 		return (0);
 	res[digits] = '\0';
