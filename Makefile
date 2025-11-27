@@ -10,44 +10,37 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+TARGET = libft.a
+SRC_DIR =  src
+BUILD_DIR = build
 
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
 
+INC_DIR = include/
+CFLAGS += -I$(INC_DIR)
 HEADER = libft.h
 
-SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-	ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
-	ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-	ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
-	ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-	ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+SRC = $(wildcard src/*.c)
 
-SRC_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-		ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
-		ft_lstmap_bonus.c
+OBJ	= $(subst $(SRC_DIR)/,$(BUILD_DIR)/,$(SRC:.c=.o))
 
-OBJ	= $(SRC:.c=.o)
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
+all: $(TARGET)
 
-all: $(NAME)
-
-%.o: %.c $(HEADER)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/$(HEADER) | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(BUILD_DIR):
+	mkdir -p $@
 
-bonus: $(OBJ_BONUS)
-	@touch bonus
-	ar rcs $(NAME) $(OBJ_BONUS)
+$(TARGET): $(OBJ)
+	ar rcs $(TARGET) $(OBJ)
 
 clean:
-	rm -f $(OBJ) $(OBJ_BONUS)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(TARGET)
 	
 re: fclean all
 
