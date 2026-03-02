@@ -47,10 +47,10 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < tokens_count)
 	{
-		w_len = 1;
-		while (*s++ == c)
-			;
-		while (*s++ != c)
+		w_len = 0;
+		while (*s == c)
+			s++;
+		while (*s++ && *(s - 1) != c)
 			w_len++;
 		tokens[i] = ft_substr(s - w_len - 1, 0, w_len);
 		if (!tokens[i])
